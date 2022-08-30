@@ -12,7 +12,7 @@ class Olp < Formula
     prefix.install "HERE_NOTICE"
     prefix.install "LICENSE"
     libexec.install "cli${SCALA_SUFFIX}-${OLP_CLI_VERSION}.jar"
-    bin.write_jar_script libexec/"cli${SCALA_SUFFIX}-${OLP_CLI_VERSION}.jar", "olp", "-Dfile.encoding=UTF8", "8"
+    bin.write_jar_script libexec/"cli${SCALA_SUFFIX}-${OLP_CLI_VERSION}.jar", "olp", "-Dfile.encoding=UTF8", java_version: "8"
   end
 
   test do

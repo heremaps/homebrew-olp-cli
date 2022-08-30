@@ -12,7 +12,7 @@ class Olp < Formula
     prefix.install "HERE_NOTICE"
     prefix.install "LICENSE"
     libexec.install "cli_2.12-12.2.5.jar"
-    bin.write_jar_script libexec/"cli_2.12-12.2.5.jar", "olp", "-Dfile.encoding=UTF8", "8"
+    bin.write_jar_script libexec/"cli_2.12-12.2.5.jar", "olp", "-Dfile.encoding=UTF8", java_version: "8"
   end
 
   test do
