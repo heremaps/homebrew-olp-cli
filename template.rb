@@ -6,7 +6,7 @@ class Olp < Formula
   version "${OLP_CLI_VERSION}"
   license "Proprietary"
 
-  depends_on "openjdk@8"
+  depends_on "openjdk@17"
 
   def install
     prefix.install "HERE_NOTICE"
@@ -16,7 +16,7 @@ class Olp < Formula
     # JAVA_VERSION, ALLOW_DEEP_REFLECTION, 2 and @ needs to be preserved during build time by using § instead of $
     (bin/"olp").write <<~EOS
       #!/bin/bash
-      export JAVA_HOME="#{Language::Java.overridable_java_home_env("1.8")[:JAVA_HOME]}"
+      export JAVA_HOME="#{Language::Java.overridable_java_home_env("17")[:JAVA_HOME]}"
       JAVA_VERSION=$(§{JAVA_HOME}/bin/java -Xms32M -Xmx32M -version 2>&1 | awk -F '"' '/version/ {print §2}')
       # Check for '1.' entry because starting from JDK 9 version numbering is different (1.8 vs 9.0/10.0/11.0/... )
       if ! [[ "§JAVA_VERSION" =~ ^1"."+ ]]; then
