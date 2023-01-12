@@ -111,7 +111,7 @@ brew uninstall olp
 
 ## License
 
-Copyright (C) 2018-2022 HERE Europe B.V.
+Copyright (C) 2018-2023 HERE Europe B.V.
 
 Unless otherwise noted in LICENSE files for specific files or directories, the LICENSE in the root applies to all content in this repository.
 
