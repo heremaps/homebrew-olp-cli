@@ -2,7 +2,7 @@ class Olp < Formula
   desc "With the Command Line Interface you can access HERE platform services from a command line or with scripts."
   homepage "https://platform.in.here.com/sdk/cli"
   url "https://artifact.api.platform.here.com/v1/references/hrn:here:artifact:::com.here.platform:cli:16.2.27/cli-16.2.27.gz\?apiKey\=84q8N9DRx6YAqyJaXUpr9fhiTnCUIBzvHLpk3QU4Oaw"
-  sha256 "e62fafb0c8b8bf9f943f28b206f1c5aaed7397d8c252fb668fc0d2b5b8c25a5f"
+  sha256 "706d024d249a8f4e1d2bb15659a2e2a4ff40079aca742189464f8734641e6c57"
   version "16.2.27"
   license "Proprietary"
 
