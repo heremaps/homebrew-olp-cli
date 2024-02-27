@@ -24,6 +24,16 @@ class Olp < Formula
       fi
       exec "§{JAVA_HOME}/bin/java" §{ALLOW_DEEP_REFLECTION:-} -Dfile.encoding=UTF8 -jar "#{libexec}/cli${SCALA_SUFFIX}-${OLP_CLI_VERSION}.jar" "§@"
     EOS
+    (bin/"maps").write <<~EOS
+      #!/bin/bash
+      export JAVA_HOME="#{Language::Java.overridable_java_home_env("17")[:JAVA_HOME]}"
+      JAVA_VERSION=$(§{JAVA_HOME}/bin/java -Xms32M -Xmx32M -version 2>&1 | awk -F '"' '/version/ {print §2}')
+      # Check for '1.' entry because starting from JDK 9 version numbering is different (1.8 vs 9.0/10.0/11.0/... )
+      if ! [[ "§JAVA_VERSION" =~ ^1"."+ ]]; then
+        ALLOW_DEEP_REFLECTION="--add-opens java.base/java.lang=ALL-UNNAMED --add-opens=java.base/sun.security.util=ALL-UNNAMED"
+      fi
+      exec "§{JAVA_HOME}/bin/java" §{ALLOW_DEEP_REFLECTION:-} -Dfile.encoding=UTF8 -cp "#{libexec}/cli${SCALA_SUFFIX}-${OLP_CLI_VERSION}.jar" "com.here.platform.cli.MapsMain" "§@"
+    EOS
   end
 
   test do
