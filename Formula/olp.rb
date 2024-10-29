@@ -1,9 +1,9 @@
 class Olp < Formula
   desc "With the Command Line Interface you can access HERE platform services from a command line or with scripts."
   homepage "https://platform.in.here.com/sdk/cli"
-  url "https://artifact.api.platform.here.com/v1/references/hrn:here:artifact:::com.here.platform:cli:17.0.26/cli-17.0.26.tar.gz\?apiKey\=84q8N9DRx6YAqyJaXUpr9fhiTnCUIBzvHLpk3QU4Oaw"
-  sha256 "09f8594c793e7851aad64b704ee2cec657565c4acbbe941818dca1eb17c7a115"
-  version "17.0.26"
+  url "https://artifact.api.platform.here.com/v1/references/hrn:here:artifact:::com.here.platform:cli:17.1.3/cli-17.1.3.tar.gz\?apiKey\=84q8N9DRx6YAqyJaXUpr9fhiTnCUIBzvHLpk3QU4Oaw"
+  sha256 "72b5f82e2cbe95d17d8fe4917aa45174f4a7fb8d9c0a2bece04c84bb5aa8c32f"
+  version "17.1.3"
   license "Proprietary"
 
   depends_on "openjdk@17"
@@ -11,7 +11,7 @@ class Olp < Formula
   def install
     prefix.install "HERE_NOTICE"
     prefix.install "LICENSE"
-    libexec.install "cli_2.12-17.0.26.jar"
+    libexec.install "cli_2.12-17.1.3.jar"
     # There are two versions of variables: build time and runtime
     # JAVA_VERSION, ALLOW_DEEP_REFLECTION, 2 and @ needs to be preserved during build time by using $ instead of $
     (bin/"olp").write <<~EOS
@@ -22,7 +22,7 @@ class Olp < Formula
       if ! [[ "$JAVA_VERSION" =~ ^1"."+ ]]; then
         ALLOW_DEEP_REFLECTION="--add-opens java.base/java.lang=ALL-UNNAMED --add-opens=java.base/sun.security.util=ALL-UNNAMED"
       fi
-      exec "${JAVA_HOME}/bin/java" ${ALLOW_DEEP_REFLECTION:-} -Dfile.encoding=UTF8 -jar "#{libexec}/cli_2.12-17.0.26.jar" "$@"
+      exec "${JAVA_HOME}/bin/java" ${ALLOW_DEEP_REFLECTION:-} -Dfile.encoding=UTF8 -jar "#{libexec}/cli_2.12-17.1.3.jar" "$@"
     EOS
   end
 
