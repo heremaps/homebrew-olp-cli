@@ -2,7 +2,7 @@ class Olp < Formula
   desc "With the Command Line Interface you can access HERE platform services from a command line or with scripts."
   homepage "https://platform.here.com/portal/sdk/cli"
   url "https://github.com/heremaps/homebrew-olp-cli/releases/download/18.0.32/cli_2.13-18.0.32.tar.gz"
-  sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
+  sha256 "5613fdbb817f00fb1fb448f0bc9e678b30079de742423782035e42e9f0626628"
   version "18.0.32"
   license "Proprietary"
 
