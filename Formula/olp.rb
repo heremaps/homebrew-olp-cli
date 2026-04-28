@@ -1,9 +1,9 @@
 class Olp < Formula
   desc "With the Command Line Interface you can access HERE platform services from a command line or with scripts."
   homepage "https://platform.here.com/portal/sdk/cli"
-  url "https://github.com/heremaps/homebrew-olp-cli/releases/download/18.1.2/cli_2.13-18.1.2.tar.gz"
-  sha256 "5aa2d70784223b71013f1b589f6f93e86e4288f3bbab875ff0f66beda30cfe44"
-  version "18.1.2"
+  url "https://github.com/heremaps/homebrew-olp-cli/releases/download/18.1.13/cli_2.13-18.1.13.tar.gz"
+  sha256 "1ceaa4e200e1735d3607d6ef8238818194832b18cd09bfbd6c6222d54a04d2ee"
+  version "18.1.13"
   license "Proprietary"
 
   depends_on "openjdk@17"
@@ -11,7 +11,7 @@ class Olp < Formula
   def install
     prefix.install "HERE_NOTICE"
     prefix.install "LICENSE"
-    libexec.install "cli_2.13-18.1.2.jar"
+    libexec.install "cli_2.13-18.1.13.jar"
     # There are two versions of variables: build time and runtime
     # JAVA_VERSION, ALLOW_DEEP_REFLECTION, 2 and @ needs to be preserved during build time by using $ instead of $
     (bin/"olp").write <<~EOS
@@ -22,7 +22,7 @@ class Olp < Formula
       if ! [[ "$JAVA_VERSION" =~ ^1"."+ ]]; then
         ALLOW_DEEP_REFLECTION="--add-opens java.base/java.lang=ALL-UNNAMED --add-opens=java.base/sun.security.util=ALL-UNNAMED"
       fi
-      exec "${JAVA_HOME}/bin/java" ${ALLOW_DEEP_REFLECTION:-} -Dfile.encoding=UTF8 -jar "#{libexec}/cli_2.13-18.1.2.jar" "$@"
+      exec "${JAVA_HOME}/bin/java" ${ALLOW_DEEP_REFLECTION:-} -Dfile.encoding=UTF8 -jar "#{libexec}/cli_2.13-18.1.13.jar" "$@"
     EOS
   end
 
